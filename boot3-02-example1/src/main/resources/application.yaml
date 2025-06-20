@@ -1,0 +1,12 @@
+spring:
+    application:
+        name: boot3-02-example1
+    datasource:
+        url: jdbc:mysql://localhost:3306/mydb?serverTimezone=Asia/Shanghai&userSSL=false
+        username: root
+        password: 123456
+        driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis-plus:
+    configuration:
+        log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
