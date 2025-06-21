@@ -50,7 +50,7 @@ public class DepartmentController {
 	}
 
 	@Operation(summary = "删除部门")
-	@DeleteMapping("/{id}")
+	@GetMapping("/delete/{id}")
 	public Result<?> delete(@PathVariable Long id){
 		departmentService.removeById(id);
 		return Result.success(null);
