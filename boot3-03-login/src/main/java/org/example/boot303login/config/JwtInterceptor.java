@@ -16,13 +16,15 @@ public class JwtInterceptor implements HandlerInterceptor {
 
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-		String token = request.getHeader("Authorization");
-		if (token == null || token.isEmpty()){
+		String authHeader = request.getHeader("Authorization");
+		if (authHeader == null || authHeader.isEmpty()){
 			throw new RuntimeException("无token，请登录");
 		}
+		String token = authHeader.substring(7);
 		try{
 			Claims claims = jwtUtil.parseToken(token);
-			request.setAttribute("claims", claims.get("id"));
+			Long userId = Long.valueOf(claims.get("id").toString());
+			request.setAttribute("userId", userId);
 			return true;
 		}catch (Exception e){
 			throw new RuntimeException("无效token");

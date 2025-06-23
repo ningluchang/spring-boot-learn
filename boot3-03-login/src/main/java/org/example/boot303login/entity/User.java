@@ -24,4 +24,6 @@ public class User {
 	private LocalDateTime createTime;
 
 	private LocalDateTime updateTime;
+
+	private String avatar;// 头像访问地址
 }
