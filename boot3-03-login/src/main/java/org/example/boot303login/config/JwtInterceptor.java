@@ -1,4 +1,4 @@
-package org.example.boot303login.interceptor;
+package org.example.boot303login.config;
 
 import io.jsonwebtoken.Claims;
 import jakarta.servlet.http.HttpServletRequest;
